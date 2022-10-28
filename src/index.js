@@ -11,14 +11,12 @@ const listEl = document.querySelector('.country-list');
 const cardEl = document.querySelector('.country-info');
 const inputEl = document.querySelector('#search-box');
 
-inputEl.value = 'canada';
-
 inputEl.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
 
 function onInputSearch(event) {
   const value = event.target.value.trim().toLowerCase();
   if (!value) {
-    return;
+    return clearMarkup();
   }
   clearMarkup();
   fetchCountries(value);
