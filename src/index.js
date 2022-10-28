@@ -20,6 +20,7 @@ function onInputSearch(event) {
   if (!value) {
     return;
   }
+  clearMarkup();
   fetchCountries(value);
 }
 
@@ -50,10 +51,8 @@ function onError() {
 
 function renderMarkup(array) {
   if (array.length > 1) {
-    cardEl.innerHTML = '';
     listEl.innerHTML = renderList(array);
   } else {
-    listEl.innerHTML = '';
     cardEl.innerHTML = renderCard(array[0]);
   }
 }
@@ -96,4 +95,9 @@ function renderCard(object) {
             </li>
         </ul>
     `;
+}
+
+function clearMarkup() {
+  listEl.innerHTML = '';
+  cardEl.innerHTML = '';
 }
