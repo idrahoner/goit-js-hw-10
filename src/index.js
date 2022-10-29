@@ -60,8 +60,8 @@ function renderList(array) {
     .map(({ name, flags: { svg: flag } }) => {
       return `
         <li class="country-list__item">
-            <img src="${flag}" alt="Flag of ${name}" class="country-list__image" width="30" />
-            <p class="country-list__name">${name}</p>
+            <img src="${flag}" alt="Flag of ${name}" class="country-list__image" width="20" height="20" />
+            <p>${name}</p>
         </li>
         `;
     })
@@ -77,17 +77,19 @@ function renderCard(object) {
     languages,
   } = object;
   return `
-        <img src="${flag}" alt="Flag of ${name}" class="country-info__image" width="30" />
-        <h2 class="country-info__name">${name}</h2>
+        <div class="country-info__title">
+          <img src="${flag}" alt="Flag of ${name}" class="country-info__image" width="20" height="20" />
+          <h2>${name}</h2>
+        </div>
         <ul class="counry-info__list">
             <li class="country-info__list-item">
-                <p class="county-info__value"><b>Capital:</b> ${capital}</p>
+                <p><b>Capital:</b> ${capital}</p>
             </li>
             <li class="country-info__list-item">
-                <p class="county-info__value"><b>Population:</b> ${population}</p>
+                <p><b>Population:</b> ${population}</p>
             </li>
             <li class="country-info__list-item">
-                <p class="county-info__value"><b>Languages:</b> ${languages
+                <p><b>Languages:</b> ${languages
                   .map(lang => lang.name)
                   .join(', ')}</p>
             </li>
